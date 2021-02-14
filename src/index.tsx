@@ -78,14 +78,14 @@ export const useSpotifyLazy = (
   });
 
   const callback = useCallback(async (overrideOptions?, ...overrideArgs) => {
-    let data;
-    let error;
+    let data = null;
+    let error = null;
 
     try {
       if (overrideArgs || args) {
         data = await spotifyApi[method](...(overrideArgs || args), overrideOptions || options);
       } else {
-        data = await spotifyApi[method](overrideOptions);
+        data = await spotifyApi[method](overrideOptions || options);
       }
     } catch (err) {
       error = err;
