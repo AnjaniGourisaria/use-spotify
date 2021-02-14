@@ -42,13 +42,23 @@ export const useSpotify = (
   });
 
   useEffect(() => {
-    spotifyApi[method](...args, options, (error, data) => {
-      setRes({
-        data,
-        error,
-        loading: false,
+    if (args) {
+      spotifyApi[method](...args, options, (error, data) => {
+        setRes({
+          data,
+          error,
+          loading: false,
+        });
       });
-    });
+    } else {
+      spotifyApi[method](options, (error, data) => {
+        setRes({
+          data,
+          error,
+          loading: false,
+        });
+      });
+    }
   }, []);
 
   return res;
