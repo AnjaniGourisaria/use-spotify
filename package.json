@@ -5,6 +5,7 @@
   "repository": "git@github.com:TimMikeladze/use-spotify.git",
   "author": "TimMikeladze <tim.mikeladze@gmail.com>",
   "license": "MIT",
+  "keywords": ["spotify", "spotify api", "spotify react", "spotify hooks", "react", "hooks"],
   "source": "src/index.tsx",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
