@@ -1,6 +1,6 @@
 # use-spotify [![npm version](https://badge.fury.io/js/use-spotify.svg)](https://badge.fury.io/js/use-spotify) 
 
-React hooks for the Spotify Web API
+React hooks for the Spotify Web API.
 
 ## Installation
 
@@ -12,13 +12,35 @@ npm install use-spotify
 
 ## Usage
 
-1. Wrap your components with a `SpotifyApiProvider`.
+1. Wrap your components with a `SpotifyApiProvider` and pass it a valid access token. Read the [Spotify Authorization Guide](https://developer.spotify.com/documentation/general/guides/authorization-guide/) for more details.
 2. Consume the `useSpotify` or `useSpotifyLazy` hooks.
+
+## API
+
+Underneath the hood `use-spotify` utilizes [Spotify Web API JS](https://github.com/JMPerez/spotify-web-api-js).
+
+- The first parameter to the hooks is any spotify method name. 
+- The second parameter is options.
+- The third parameter is a list of arguments specific to the spotify method. 
+
+Further documentation for each method and its arguments can be found at the [Spotify Web API JS](https://jmperezperez.com/spotify-web-api-js/) documentation or in the [Spotify Web API Reference](https://developer.spotify.com/documentation/web-api/reference/).
+
+```typescript
+const result = useSpotify(spotifyMethod, options, ...args)
+
+const [invoke, result] = useSpotifyLazy(spotifyMethod, options, ...args)
+
+await invoke()
+
+await invoke(overrideOption, ...overrideArgs)
+```
 
 ## Examples 
 
+### Provider
+
 ```typescript jsx
-import { useSpotify } from "use-spotify";
+import { useSpotify, SpotifyApiProvider } from 'use-spotify';
 
 const App = () => {
     return (
@@ -30,7 +52,11 @@ const App = () => {
 };
 ```
 
+### Simple hook usage
+
 ```typescript jsx
+import { useSpotify } from 'use-spotify';
+
 const MyTopArtists = () => {
     const myTopArtists = useSpotify('getMyTopArtists');
     
@@ -46,7 +72,12 @@ const MyTopArtists = () => {
 }
 ```
 
+### Passing arguments to a hook
+
+
 ```typescript jsx
+import { useSpotify } from 'use-spotify';
+
 const Search = () => {
     const search = useSpotify(
         'search',
@@ -69,7 +100,11 @@ const Search = () => {
 }
 ```
 
+### Passing arguments to a lazy hook
+
 ```typescript jsx
+import { useSpotifyLazy } from 'use-spotify';
+
 const SearchLazy = () => {
     const [search, results] = useSpotifyLazy(
         'search',
