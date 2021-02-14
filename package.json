@@ -1,6 +1,6 @@
 {
   "name": "use-spotify",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha1",
   "description": "React hooks for the Spotify Web API",
   "repository": "git@github.com:TimMikeladze/use-spotify.git",
   "author": "TimMikeladze <tim.mikeladze@gmail.com>",

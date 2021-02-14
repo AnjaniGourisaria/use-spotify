@@ -1,4 +1,5 @@
-# use-spotify
+# use-spotify [![npm version](https://badge.fury.io/js/use-spotify.svg)](https://badge.fury.io/js/use-spotify) 
+
 React hooks for the Spotify Web API
 
 ## Installation
@@ -77,7 +78,6 @@ const SearchLazy = () => {
     useEffect(() => {
         (async () => {
             const searchResults = await search(
-                'search',
                 {
                     limit: 5,
                 },
