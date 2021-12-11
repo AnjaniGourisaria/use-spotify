@@ -52,7 +52,7 @@
     "react-dom": "^17.0.1"
   },
   "dependencies": {
-    "spotify-web-api-js": "^1.5.1",
+    "spotify-web-api-js": "^1.5.2",
     "utility-types": "^3.10.0"
   },
   "lint-staged": {
