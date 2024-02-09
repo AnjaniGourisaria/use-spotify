@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "spotify-web-api-js": "^1.5.1",
-    "utility-types": "^3.10.0"
+    "utility-types": "^3.11.0"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
